@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* تطبيق الخط العربي + الإنجليزي على كل العناصر */
     body, h1, h2, h3, h4, h5, h6, p, span, a, li, button, input {
         font-family: 'Tajawal', 'Arial', sans-serif;
     }
@@ -97,7 +96,6 @@
       font-size: 12px;
       color: #aaa;
     }
-    /* صفحة التفاصيل */
     .details {
       display: none;
       padding: 20px;
@@ -132,19 +130,55 @@
     <div class="product" onclick="showDetails('wukong')">
       <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426551024750752/image0.jpg?ex=68a26c4b&is=68a11acb&hm=81d8d335a268ee325f26ef559fb6c6c7a564003ab2cc6b5bb0d63dc83aa0549c&" alt="Black Myth Wukong">
       <h2>Black Myth: Wukong</h2>
-      <p class="price">15 ريال</p>
+      <p class="price">2$</p>
     </div>
 
     <div class="product" onclick="showDetails('wuchang')">
       <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426332711354460/image0.jpg?ex=68a26c17&is=68a11a97&hm=35076c9fc530108e52df53bdf2ec4d46bc4e6f3da8f3e686bdff5887fc3120ed&" alt="Wuchang">
       <h2>Wuchang: Fallen Feathers</h2>
-      <p class="price">20 ريال</p>
+      <p class="price">1.5$</p>
     </div>
 
     <div class="product" onclick="showDetails('khazan')">
-      <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406425170440359937/capsule_616x353.jpg?ex=68a26b02&is=68a11982&hm=29b8e7595398c928abe054f086c87de9b81b69d8e1573d8c0899f447f18ce74a" alt="Khazan The Berserk">
+      <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406425170440359937/capsule_616x353.jpg?ex=68a26b02&is=68a11982&hm=29b8e7595398c928abe054f086c87de9b81b69d8e1573d8c0899f447f18ce74a&" alt="Khazan The Berserk">
       <h2>Khazan: The Berserk</h2>
-      <p class="price">18 ريال</p>
+      <p class="price">1.5$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('eldenring')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446279734591548/capsule_616x353.png?ex=68a27eab&is=68a12d2b&hm=a161c5a8ac4863386566f854845418ff83a4c4399ecca0fa836d3587aecd01db&" alt="Elden Ring">
+      <h2>Elden Ring</h2>
+      <p class="price">2$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('eldenringnight')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446383174520842/maxresdefault.png?ex=68a27ec4&is=68a12d44&hm=2b667bed6809aa942f3c3c66b84e2407bc2227b516b2d3f4776ecc0f442228c1&" alt="Elden Ring: Night Reign">
+      <h2>Elden Ring: Night Reign</h2>
+      <p class="price">1.5$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('dragonsdogma')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446617875447848/header.png?ex=68a27efc&is=68a12d7c&hm=510b670d4be410f5294e42bb39c68614d98447e86a1995963fa9572f394076ee&" alt="Dragon's Dogma 2">
+      <h2>Dragon's Dogma 2</h2>
+      <p class="price">1.5$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('darksouls3')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406445567261016206/I4QiHGSKQBWiLm9Dq2Os.png?ex=68a27e01&is=68a12c81&hm=7563d58dae269e5148bc6a2d40669fe0bc029731b17adfb05a60dadcfcc3ab11&" alt="Dark Souls III">
+      <h2>Dark Souls III</h2>
+      <p class="price">1.5$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('witcherbun')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406449194897772664/image0.jpg?ex=68a28162&is=68a12fe2&hm=50edcae5de7982103b23269ceca6daa5451a5357ad332f705390e45480be37c5&" alt="The Witcher Bundle">
+      <h2>The Witcher Bundle</h2>
+      <p class="price">3$</p>
+    </div>
+
+    <div class="product" onclick="showDetails('horizon')">
+      <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406450202604343388/capsule_616x353.png?ex=68a28252&is=68a130d2&hm=ea8ed36460bfcdfc22894601a9616978aa86d4d84c7b670f14d442ad4e67957d&" alt="Horizon Forbidden West: Burning Shores">
+      <h2>Horizon Forbidden West: Burning Shores</h2>
+      <p class="price">1.5$</p>
     </div>
   </div>
 
@@ -152,21 +186,63 @@
   <div class="details" id="wukong">
     <h2>Black Myth: Wukong</h2>
     <p>لعبة اكشن RPG صينية مستوحاة من رحلة إلى الغرب.</p>
-    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
     <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
   </div>
 
   <div class="details" id="wuchang">
     <h2>Wuchang: Fallen Feathers</h2>
     <p>لعبة اكشن و RPG داكنة بعالم صيني ملحمي.</p>
-    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
     <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
   </div>
 
   <div class="details" id="khazan">
     <h2>Khazan: The Berserk</h2>
     <p>لعبة RPG جديدة بأسلوب السولز.</p>
-    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="eldenring">
+    <h2>Elden Ring</h2>
+    <p>واحدة من أفضل ألعاب الأر بي جي بعالم مفتوح ملحمي.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="eldenringnight">
+    <h2>Elden Ring: Night Reign</h2>
+    <p>التوسعة الرسمية للعبة Elden Ring بعالم مظلم وجديد.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="dragonsdogma">
+    <h2>Dragon's Dogma 2</h2>
+    <p>لعبة أكشن RPG بعالم مفتوح واسع ومغامرات أسطورية.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="darksouls3">
+    <h2>Dark Souls III</h2>
+    <p>لعبة سولز كلاسيكية بصعوبة عالية وتجربة قتالية ملحمية.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="witcherbun">
+    <h2>The Witcher Bundle</h2>
+    <p>حزمة ألعاب The Witcher الكاملة بتجربة أسطورية مع جيرالت.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="horizon">
+    <h2>Horizon Forbidden West: Burning Shores</h2>
+    <p>الإضافة الخاصة لهورايزن مع مغامرات جديدة ومناطق خطيرة.</p>
+    <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
     <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
   </div>
 
