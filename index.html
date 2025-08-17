@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زيلون ستور</title>
+
+  <!-- خط حديث وبسيط -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* تطبيق الخط العربي + الإنجليزي على كل العناصر */
+    body, h1, h2, h3, h4, h5, h6, p, span, a, li, button, input {
+        font-family: 'Tajawal', 'Arial', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #0d0d0d;
+      color: #e6e6e6;
+      transition: background 0.5s, color 0.5s;
+    }
+    header {
+      background-color: #006d6d;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 2px solid #00b3b3;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #00b3b3;
+    }
+    .search-box input {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #00b3b3;
+      outline: none;
+      background: #0d0d0d;
+      color: #fff;
+    }
+    .lang-switch {
+      cursor: pointer;
+      margin: 0 10px;
+      color: #00e6e6;
+    }
+    .cart-btn {
+      background: #00b3b3;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .cart-btn:hover {
+      background: #008080;
+    }
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background-color: #1a1a1a;
+      border: 1px solid #00b3b3;
+      border-radius: 10px;
+      padding: 15px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.03);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .product h2 {
+      font-size: 18px;
+      color: #00e6e6;
+    }
+    .price {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+    .note {
+      font-size: 12px;
+      color: #aaa;
+    }
+    /* صفحة التفاصيل */
+    .details {
+      display: none;
+      padding: 20px;
+    }
+    .details.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>🛒 زيلون ستور</header>
+
+  <nav>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="ابحث عن لعبة...">
+    </div>
+    <div>
+      <span class="lang-switch" onclick="switchLang('ar')">🇸🇦 عربي</span> | 
+      <span class="lang-switch" onclick="switchLang('en')">🇬🇧 English</span>
+    </div>
+    <button class="cart-btn" onclick="viewCart()">سلة المشتريات 🛍️</button>
+  </nav>
+
+  <!-- قائمة المنتجات -->
+  <div class="container" id="product-list">
+    <div class="product" onclick="showDetails('wukong')">
+      <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426551024750752/image0.jpg?ex=68a26c4b&is=68a11acb&hm=81d8d335a268ee325f26ef559fb6c6c7a564003ab2cc6b5bb0d63dc83aa0549c&" alt="Black Myth Wukong">
+      <h2>Black Myth: Wukong</h2>
+      <p class="price">15 ريال</p>
+    </div>
+
+    <div class="product" onclick="showDetails('wuchang')">
+      <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426332711354460/image0.jpg?ex=68a26c17&is=68a11a97&hm=35076c9fc530108e52df53bdf2ec4d46bc4e6f3da8f3e686bdff5887fc3120ed&" alt="Wuchang">
+      <h2>Wuchang: Fallen Feathers</h2>
+      <p class="price">20 ريال</p>
+    </div>
+
+    <div class="product" onclick="showDetails('khazan')">
+      <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406425170440359937/capsule_616x353.jpg?ex=68a26b02&is=68a11982&hm=29b8e7595398c928abe054f086c87de9b81b69d8e1573d8c0899f447f18ce74a" alt="Khazan The Berserk">
+      <h2>Khazan: The Berserk</h2>
+      <p class="price">18 ريال</p>
+    </div>
+  </div>
+
+  <!-- تفاصيل المنتجات -->
+  <div class="details" id="wukong">
+    <h2>Black Myth: Wukong</h2>
+    <p>لعبة اكشن RPG صينية مستوحاة من رحلة إلى الغرب.</p>
+    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="wuchang">
+    <h2>Wuchang: Fallen Feathers</h2>
+    <p>لعبة اكشن و RPG داكنة بعالم صيني ملحمي.</p>
+    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <div class="details" id="khazan">
+    <h2>Khazan: The Berserk</h2>
+    <p>لعبة RPG جديدة بأسلوب السولز.</p>
+    <p class="note">* أي مشكلة بالحساب مالنا دخل وسيتم التعويض</p>
+    <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+  </div>
+
+  <script>
+    function showDetails(id) {
+      document.querySelectorAll(".details").forEach(d => d.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchLang(lang) {
+      if (lang === 'en') {
+        document.querySelector("header").innerText = "Zelon Store 🛒";
+        document.getElementById("search").placeholder = "Search for a game...";
+        document.querySelector(".cart-btn").innerText = "View Cart 🛍️";
+      } else {
+        document.querySelector("header").innerText = "🛒 زيلون ستور";
+        document.getElementById("search").placeholder = "ابحث عن لعبة...";
+        document.querySelector(".cart-btn").innerText = "سلة المشتريات 🛍️";
+      }
+    }
+
+    function viewCart() {
+      alert("السلة قيد التطوير – راح نضيف عرض المنتجات بيها!");
+    }
+  </script>
+
+</body>
+</html>
