@@ -1,246 +1,669 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>زيلون ستور</title>
+
+
 
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
+
+
   <style>
+
     body, h1, h2, h3, h4, h5, h6, p, span, a, li, button, input {
+
         font-family: 'Tajawal', 'Arial', sans-serif;
+
     }
+
     body { margin: 0; background-color: #0d0d0d; color: #e6e6e6; transition: background 0.5s, color 0.5s; }
+
     header { background-color: #006d6d; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; border-bottom: 2px solid #00b3b3; }
+
     nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #1a1a1a; border-bottom: 1px solid #00b3b3; }
+
     .search-box input { padding: 7px; border-radius: 5px; border: 1px solid #00b3b3; outline: none; background: #0d0d0d; color: #fff; }
+
     .lang-switch { cursor: pointer; margin: 0 10px; color: #00e6e6; }
+
     .cart-btn { background: #00b3b3; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; color: #fff; font-size: 14px; transition: 0.3s; }
+
     .cart-btn:hover { background: #008080; }
+
     .container { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
     .product { background-color: #1a1a1a; border: 1px solid #00b3b3; border-radius: 10px; padding: 15px; cursor: pointer; transition: transform 0.3s; }
+
     .product:hover { transform: scale(1.03); }
+
     .product img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+
     .product h2 { font-size: 18px; color: #00e6e6; }
+
     .price { font-size: 16px; font-weight: bold; margin: 8px 0; }
+
     .note { font-size: 12px; color: #aaa; }
+
     .details { display: none; padding: 20px; }
+
     .details.active { display: block; animation: fadeIn 0.5s; }
+
     @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
   </style>
+
 </head>
+
 <body>
+
+
 
 <header>🛒 زيلون ستور</header>
 
+
+
 <nav>
+
   <div class="search-box">
+
     <input type="text" id="search" placeholder="ابحث عن لعبة...">
+
   </div>
+
   <div>
+
     <span class="lang-switch" onclick="switchLang('ar')">🇸🇦 عربي</span> | 
+
     <span class="lang-switch" onclick="switchLang('en')">🇬🇧 English</span>
+
   </div>
+
   <button class="cart-btn" onclick="viewCart()">سلة المشتريات 🛍️</button>
+
 </nav>
 
+
+
 <div class="container" id="product-list">
+
   <div class="product" onclick="showDetails('wukong')">
+
     <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426551024750752/image0.jpg?ex=68a26c4b&is=68a11acb&hm=81d8d335a268ee325f26ef559fb6c6c7a564003ab2cc6b5bb0d63dc83aa0549c&" alt="Black Myth Wukong">
+
     <h2>Black Myth: Wukong</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('wuchang')">
+
     <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406426332711354460/image0.jpg?ex=68a26c17&is=68a11a97&hm=35076c9fc530108e52df53bdf2ec4d46bc4e6f3da8f3e686bdff5887fc3120ed&" alt="Wuchang">
+
     <h2>Wuchang: Fallen Feathers</h2>
+
     <p class="price">1.5$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('khazan')">
+
     <img src="https://cdn.discordapp.com/attachments/1287870462671589526/1406425170440359937/capsule_616x353.jpg?ex=68a26b02&is=68a11982&hm=29b8e7595398c928abe054f086c87de9b81b69d8e1573d8c0899f447f18ce74a&" alt="Khazan The Berserk">
+
     <h2>The first berserker: Khazan</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('eldenring')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446279734591548/capsule_616x353.png?ex=68a27eab&is=68a12d2b&hm=a161c5a8ac4863386566f854845418ff83a4c4399ecca0fa836d3587aecd01db&" alt="Elden Ring">
+
     <h2>Elden Ring</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('eldenringnight')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446383174520842/maxresdefault.png?ex=68a27ec4&is=68a12d44&hm=2b667bed6809aa942f3c3c66b84e2407bc2227b516b2d3f4776ecc0f442228c1&" alt="Elden Ring: Night Reign">
+
     <h2>Elden Ring: Night Reign</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('dragonsdogma')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406446617875447848/header.png?ex=68a27efc&is=68a12d7c&hm=510b670d4be410f5294e42bb39c68614d98447e86a1995963fa9572f394076ee&" alt="Dragon's Dogma 2">
+
     <h2>Dragon's Dogma 2</h2>
+
     <p class="price">1.5$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('darksouls3')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406445567261016206/I4QiHGSKQBWiLm9Dq2Os.png?ex=68a27e01&is=68a12c81&hm=7563d58dae269e5148bc6a2d40669fe0bc029731b17adfb05a60dadcfcc3ab11&" alt="Dark Souls III">
+
     <h2>Dark Souls III</h2>
+
     <p class="price">1.5$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('witcherbun')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406449194897772664/image0.jpg?ex=68a28162&is=68a12fe2&hm=50edcae5de7982103b23269ceca6daa5451a5357ad332f705390e45480be37c5&" alt="The Witcher Bundle">
+
     <h2>The Witcher Bundle</h2>
+
     <p class="price">2.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('horizon')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406450202604343388/capsule_616x353.png?ex=68a28252&is=68a130d2&hm=ea8ed36460bfcdfc22894601a9616978aa86d4d84c7b670f14d442ad4e67957d&" alt="Horizon Forbidden West: Burning Shores">
+
     <h2>Horizon Forbidden West: Burning Shores</h2>
+
     <p class="price">1.5$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('lordsofthefallen')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406457587691556965/Lords-of-the-Fallen-header.png?ex=68a28933&is=68a137b3&hm=34b6d885008bcd1284d0496577eee318fb05cd9b8c8b980e3fc391a77d4d9713&" alt="Lords of the Fallen">
+
     <h2>Lords of the Fallen</h2>
+
     <p class="price">1.5$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('godofwar')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406451940346302636/god-of-war-listing-thumb-01-ps4-us-12jun17.png?ex=68a283f1&is=68a13271&hm=ddcebebfe3b58292c11c232d732dd29d9f46ed785d2b9049e14d63c04b436455&" alt="God of War">
+
     <h2>God of War</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+
 
   <div class="product" onclick="showDetails('liesofp')">
+
     <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406457796437999737/Lies-of-P-Header.png?ex=68a28965&is=68a137e5&hm=f7c71a76958399b8b6f00a74dc2df5c5d7b0d872194a26a39c8293723ee3148a&" alt="Lies of P">
+
     <h2>Lies of P</h2>
+
     <p class="price">1.99$</p>
+
   </div>
+
+  
+  <div class="product" onclick="showDetails('cup')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406810694040555651/cuphead-pc-mac-game-steam-cover.png?ex=68adb54e&is=68ac63ce&hm=c082187e4863db96cd98163c294cc48c233e69b58e383127d7cceb77cd45dde3&" alt="Cuphead">
+
+    <h2>Cuphead</h2>
+
+    <p class="price">0.99$</p>
+
+  </div>
+
+  
+  <div class="product" onclick="showDetails('cup2')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406813395377979442/image0.jpg?ex=68adb7d2&is=68ac6652&hm=1aaac2ec4924d2ef7003cf9b5e7018dda1e4e2c3a984599837d50838a1c38f59&" alt="Dark souls 2">
+
+    <h2>Dark souls 2</h2>
+
+    <p class="price">0.99$</p>
+
+  </div>
+
+  
+  <div class="product" onclick="showDetails('cup3')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406812738163966085/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.png?ex=68adb736&is=68ac65b6&hm=0b911ba459b48a3c070fe7d34b1e062e740b3bb9afd513d25a3e7be3adc0c411&" alt="Red Dead Redemption 2">
+
+    <h2>Red Dead Redemption 2</h2>
+
+    <p class="price">1.5$</p>
+
+  </div>
+  
+  <div class="product" onclick="showDetails('cup4')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406812813204258888/Untitled95_20250818043142.png?ex=68adb747&is=68ac65c7&hm=3d35c5aa35eae8069e4cfdf47cdfad7b2c84fd652040df08f0b1c9d63ee8656c&" alt="Ori Bundle">
+
+    <h2>Ori Bundle</h2>
+
+    <p class="price">1.99$</p>
+
+  </div>
+
+  
+  <div class="product" onclick="showDetails('cup5')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406812024515858463/D8BAD984D8A7D981_D981D986D98A_D984D984D8B9D8A8D8A9_D8B3D98AD983D98AD8B1D988_D8B4D8A7D8AFD988D8B2_D8AFD8A7D98A_D8AAD988D8A7D98AD8B3.png?ex=68adb68b&is=68ac650b&hm=aaf55089ae9cb09a155da64134dc5010c2908d79c08f5acb6d9438f9958e43d5&" alt="Sekiro">
+
+    <h2>Sekiro</h2>
+
+    <p class="price">1.99$</p>
+
+  </div>
+
+  
+  <div class="product" onclick="showDetails('cup6')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406527814336774204/capsule_616x353.png?ex=68adff5a&is=68acadda&hm=0867c2384a1ad9a9d3f3e6e4409d8d080f4e03bc1a8526f653e8ed0b3808e2e7&" alt="Monster Hunter Wilds">
+
+    <h2>Monster Hunter Wilds</h2>
+
+    <p class="price">1.5$</p>
+
+  </div>
+
+  
+  <div class="product" onclick="showDetails('cup7')">
+
+    <img src="https://cdn.discordapp.com/attachments/1398805004374118400/1406816470339555419/Cyberpunk-2077-67.png?ex=68adbaaf&is=68ac692f&hm=f6024870ca57076a55f56c38af5f39aaf232f524f2e0f51ec595bb5aa2827790&" alt="Cyberpunk 2077">
+
+    <h2>Cyberpunk 2077</h2>
+
+    <p class="price">1.5$</p>
+
+  </div>
+
 </div>
+
+
 
 <!-- تفاصيل كل المنتجات -->
+
 <div class="details" id="wukong">
+
   <h2>Black Myth: Wukong</h2>
+
   <p>لعبة اكشن RPG صينية مستوحاة من رحلة إلى الغرب.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="wuchang">
+
   <h2>Wuchang: Fallen Feathers</h2>
+
   <p>لعبة اكشن و RPG داكنة بعالم صيني ملحمي.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="khazan">
+
   <h2>Khazan: The Berserk</h2>
+
   <p>لعبة RPG جديدة بأسلوب السولز.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="eldenring">
+
   <h2>Elden Ring</h2>
+
   <p>واحدة من أفضل ألعاب الأر بي جي بعالم مفتوح ملحمي.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="eldenringnight">
+
   <h2>Elden Ring: Night Reign</h2>
+
   <p>التوسعة الرسمية للعبة Elden Ring بعالم مظلم وجديد.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="dragonsdogma">
+
   <h2>Dragon's Dogma 2</h2>
+
   <p>لعبة أكشن RPG بعالم مفتوح واسع ومغامرات أسطورية.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="darksouls3">
+
   <h2>Dark Souls III</h2>
+
   <p>لعبة سولز كلاسيكية بصعوبة عالية وتجربة قتالية ملحمية.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="witcherbun">
+
   <h2>The Witcher Bundle</h2>
+
   <p>حزمة ألعاب The Witcher الكاملة بتجربة أسطورية مع جيرالت.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="horizon">
+
   <h2>Horizon Forbidden West: Burning Shores</h2>
+
   <p> لعبة أكشن عالم مفتوح تشمل اللعبة الأساسية مع إضافة Burning Shores.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="lordsofthefallen">
+
   <h2>Lords of the Fallen</h2>
+
   <p>أكشن RPG مظلمة بأسلوب السولز بعالمين متداخلين.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="godofwar">
+
   <h2>God of War</h2>
+
   <p>رحلة كريتوس وآتريوس الملحمية بنظام قتال قوي وقصة مؤثرة.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
+
+
 
 <div class="details" id="liesofp">
+
   <h2>Lies of P</h2>
+
   <p>سولزلايك بتوجه فيكتوري غامق، قتال دقيق وقصص ملتوية.</p>
+
   <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
   <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
   <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
 </div>
 
+
+<div class="details" id="cup">
+
+  <h2>Cuphead</h2>
+
+  <p>لعبة أكشن منصات برسومات كرتونية قديمة وقتالات زعماء صعبة ومليئة بالتحدي.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
+<div class="details" id="cup2">
+
+  <h2>Dark souls 2</h2>
+
+  <p>لعبة تقمص أدوار وأكشن دارك فانتسي بصعوبة عالية واستكشاف مليء بالتحديات.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
+<div class="details" id="cup3">
+
+  <h2>Red Dead Redemption 2</h2>
+
+  <p>لعبة عالم مفتوح غربية ملحمية بقصة عميقة وتجربة واقعية في الغرب الأمريكي.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
+<div class="details" id="cup4">
+
+  <h2>Ori Bundle</h2>
+
+  <p>حزمة اوري النسختين بحساب واحد مع عالم غامض شبيه بلعبة hollow knight</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+<div class="details" id="cup5">
+
+  <h2>Sekiro</h2>
+
+  <p>لعبة أكشن تقمص أدوار يابانية بأجواء الساموراي، قتال سريع يعتمد على التوقيت والدقة وصعوبة عالية.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
+<div class="details" id="cup6">
+
+  <h2>Monster Hunter Wilds</h2>
+
+  <p>لعبة أكشن وصيد وحوش عملاقة بأسلحة وتكتيكات متنوعة.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
+<div class="details" id="cup7">
+
+  <h2>Cyberpunk 2077</h2>
+
+  <p>لعبة عالم مفتوح مستقبلية مليئة بالأكشن والخيارات في مدينة سايبربانك ضخمة.</p>
+
+  <p class="note">* أي مشكلة بالحساب سيتم التعويض وحل المشكلة</p>
+
+  <p class="note">* نوع الحسابات مشترك واللعب أوفلاين</p>
+
+  <a href="https://t.me/D66C6" class="cart-btn">تواصل عبر تيليغرام</a>
+
+</div>
+
+
 <script>
+
   function showDetails(id) {
+
     document.querySelectorAll(".details").forEach(d => d.classList.remove("active"));
+
     document.getElementById(id).classList.add("active");
+
     document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+
   }
+
+
 
   function switchLang(lang) {
+
     if (lang === 'en') {
+
       document.querySelector("header").innerText = "Zelon Store 🛒";
+
       document.getElementById("search").placeholder = "Search for a game...";
+
       document.querySelector(".cart-btn").innerText = "View Cart 🛍️";
+
     } else {
+
       document.querySelector("header").innerText = "🛒 زيلون ستور";
+
       document.getElementById("search").placeholder = "ابحث عن لعبة...";
+
       document.querySelector(".cart-btn").innerText = "سلة المشتريات 🛍️";
+
     }
+
   }
+
+
 
   function viewCart() {
+
     alert("السلة قيد التطوير – راح نضيف عرض المنتجات بيها!");
+
   }
+
 </script>
 
+
+
 </body>
+
 </html>
+
 
 
